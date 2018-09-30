@@ -1,1 +1,8 @@
+# Environment
 env
+
+# Editor config
+.vscode
+
+# Cache
+.mypy_cache
