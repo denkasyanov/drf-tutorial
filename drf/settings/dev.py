@@ -1,7 +1,5 @@
 from .base import * # noqa
-# from django.conf.settings import *
 
-# SECRET_KEY = '$7x^8fgxa-%3nrhuw(lx&*@w(8=m!1s5a!78aqy8oz8t2+h$_v'
 
 DATABASES = {
     'default': {
@@ -14,3 +12,21 @@ DATABASES = {
 }
 
 ALLOWED_HOSTS = ['0.0.0.0']
+
+# Django Debug Toolbar settings
+INSTALLED_APPS = [
+    'debug_toolbar',
+] + INSTALLED_APPS
+
+MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+] + MIDDLEWARE
+
+
+def show_toolbar(request):
+    return True
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+}
